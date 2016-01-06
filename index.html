@@ -3,7 +3,44 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/foundation.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
   </head>
   <body>
+    <div ng-controller="PlayerController">
+      <button ng-click="play()" class="button" ng-show="!playing">Play</button>
+      <button ng-click="stop()" class="button alert" ng-show="playing">Stop</button>
+      <p> Playing audio: <b>{{ playing }}</b></p>
+      <ul id="programs_list" class="">
+        <li ng-repeat="program in programs">
+          <span npr-link play="play(program)" ng-model="program"></span>
+        </li>
+      </ul>
+    </div>
+    
+    
+<!--    
+    <div ng-controller = "ServiceController">
+      <label for="username">Type in a GitHub username</label>
+      <input type="text" ng-model="username" placeholder="Enter a GitHub username, like auser" />
+      <pre ng-show="username">{{ events }}</pre>
+    </div>
+    
+    
+     <div ng-controller = "MyController">
+      <input type="text" ng-model="person.name" placeholder="Enter your name" />
+      <h5>Hello {{person.name}}</h5>
+      {{ clock }}
+    </div>
+    <div ng-controller = "DemoController">
+      <button ng-click="add(1)" class="button">Add</button>
+      <button ng-click="subtract(1)" class="button">Subtract</button>
+      Current counter: {{ counter }}
+    </div> -->
   </body>
 </html>
+
+
+<!-- python -m SimpleHTTPServer 3000 -->
+<!-- NPR API Key: MDE1NzI0MTYyMDE0MDcxNTIxMTk4OGQ0MQ001 -->
